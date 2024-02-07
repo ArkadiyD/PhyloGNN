@@ -52,7 +52,7 @@ class Trainable(tune.Trainable):
         full_config = {}
         full_config[
             "results_folder"
-        ] = "/export/scratch1/home/arkadiy/CombineGNN/results/final_baseline_gnn2"
+        ] = "/export/scratch1/home/arkadiy/CombineGNN/results/baseline_GNN"
         full_config[
             "out_name_template"
         ] = "dataset<{dataset[names]}>_{directed_graphs}_network<{network[conv]}_{network[num_layers]}_{network[hidden_size]}_{network[pool]}_{network[conv_dropout]}_{network[mlp_dropout]}>_training<{training[num_samples]}_{training[lr]}_{training[wd]}_{features[add_ohe_leaves]}"
@@ -94,7 +94,7 @@ class Trainable(tune.Trainable):
 
         trial_num = int(trial_id.split("_")[1])
         self.config_path = os.path.join(
-            "/export/scratch1/home/arkadiy/CombineGNN/configs/basline_GNN",
+            "/export/scratch1/home/arkadiy/CombineGNN/configs/baseline_GNN",
             str(trial_num) + ".yaml",
         )
         os.makedirs(os.path.dirname(self.config_path), exist_ok=True)

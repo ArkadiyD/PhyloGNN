@@ -47,7 +47,7 @@ class Trainable(tune.Trainable):
         full_config = {}
         full_config[
             "results_folder"
-        ] = "/export/scratch1/home/arkadiy/CombineGNN/results/tune_ours_configs_new"
+        ] = "/export/scratch1/home/arkadiy/CombineGNN/results/tunehparams_CombineGNN/"
         full_config[
             "out_name_template"
         ] = "dataset<{dataset[names]}>_usenodefeatures{features[use_node_types]} _{directed_graphs}_network<{network[conv]}_{network[num_layers]}_{network[hidden_size]}_{network[pool]}_{network[conv_dropout]}_{network[mlp_dropout]}>_training<{training[num_samples]}_{training[lr]}_{training[wd]}"

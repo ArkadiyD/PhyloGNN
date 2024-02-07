@@ -47,7 +47,7 @@ class Trainable(tune.Trainable):
         full_config = {}
         full_config[
             "results_folder"
-        ] = "/export/scratch1/home/arkadiy/CombineGNN/results/final_baseline_xgboost2"
+        ] = "/export/scratch1/home/arkadiy/CombineGNN/results/baseline_XGBoost"
         full_config[
             "out_name_template"
         ] = "dataset<{dataset[names]}>_model<{model[n_estimators]}_{model[max_depth]}_{model[learning_rate]}>"

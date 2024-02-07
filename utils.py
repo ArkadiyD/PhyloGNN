@@ -9,6 +9,8 @@ import random
 import torch
 from TreeWidthTreeContainment import BOTCH
 
+import repackage
+repackage.up()
 
 
 def get_legal_moves(net_, ensure_treechild=False):
@@ -77,26 +79,20 @@ def reticulations(network):
         network.in_degree(v) - 1 for v in network.nodes() if network.in_degree(v) >= 2
     ]
 
-
 def ret_number(network):
     return np.sum(reticulations(network))
-
 
 def is_ret_node(net, node):
     return net.in_degree(node) >= 2 and net.out_degree(node) == 1
 
-
 def is_tree_node(net, node):
     return net.in_degree(node) == 1 and net.out_degree(node) == 2
-
 
 def is_leaf_node(net, node):
     return net.out_degree(node) == 0
 
-
 def get_ret_nodes(net):
     return [x for x in net.nodes if is_ret_node(net, x)]
-
 
 def get_leaves(net):
     return [x for x in net.nodes if is_leaf_node(net, x)]
@@ -222,10 +218,8 @@ def reverse_tail_move(network, u, v, s, t, p, c):
 def worker_init_fn(worker_id):
     torch_seed = torch.initial_seed() + worker_id
     torch_seed = torch_seed % 2**30
-
     random.seed(torch_seed)
     np.random.seed(torch_seed)
-    # print('worker id', worker_id, torch_seed)
 
 
 def set_random_seeds(seed):
@@ -240,10 +234,6 @@ def set_random_seeds(seed):
 def check_tree_containment(network, tree):
     res = BOTCH.tc_brute_force(deepcopy(tree), deepcopy(network))
     return int(res)
-
-
-def longest_path(G, s, t):
-    return len(max(nx.all_simple_paths(G, s, t), key=lambda x: len(x)))
 
 
 def get_data_split(dataset_name, config):

@@ -1,0 +1,15 @@
+results_folder: /export/scratch1/home/arkadiy/CombineGNN/results2/CombineGNN
+out_name_template: dataset<{dataset[names]}>_usenodefeatures{features[use_node_types]}
+  _{directed_graphs}_network<{network[conv]}_{network[num_layers]}_{network[hidden_size]}_{network[pool]}_{network[conv_dropout]}_{network[mlp_dropout]}>_training<{training[num_samples]}_{training[lr]}_{training[wd]}
+first_seed: 42
+num_seeds: 5
+gpu: 0
+directed_graphs: dirGNN
+dataset:
+  folder: /export/scratch1/home/arkadiy/CombineGNN/datasets/
+  names: [train_5_10_test_11_20]
+features: {use_node_types: true}
+training: {num_samples: 10000, batch_size: 200, num_cycles: 1, steps_in_cycle: 5000,
+  wd: 0.0, lr: 0.001}
+network: {pool: max, hidden_size: 128, conv: DirGCN, num_layers: 5, mlp_dropout: 0.2,
+  conv_dropout: 0.0}

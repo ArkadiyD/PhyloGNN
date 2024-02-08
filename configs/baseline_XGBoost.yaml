@@ -1,0 +1,10 @@
+results_folder: /export/scratch1/home/arkadiy/CombineGNN/results/baseline_xgboost
+out_name_template: dataset<{dataset[names]}>_model<{model[n_estimators]}_{model[max_depth]}_{model[learning_rate]}>
+first_seed: 42
+num_seeds: 5
+dataset:
+  folder: /export/scratch1/home/arkadiy/CombineGNN/datasets/
+  names: [train_5_10_test_11_20]
+training: {num_samples: 10000}
+model: {n_estimators: 50, max_depth: 10, learning_rate: 0.1, max_leaves: 100, reg_lambda: null,
+  subsample: 1.0, colsample_bytree: 0.5}

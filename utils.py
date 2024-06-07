@@ -242,6 +242,9 @@ def get_data_split(dataset_name, config):
     ind = np.random.permutation(len(train_data))[
         : int(config["training"]["num_samples"])
     ]
+    print("Number of training samples: ", len(ind))
+    print("Number of validation+test samples: ", len(val_test_data) )
+
     train_data = [train_data[i] for i in ind]
     np.random.seed(42)
     ind = np.random.permutation(len(val_test_data))

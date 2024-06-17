@@ -15,3 +15,18 @@ Parallel experiments (using ray) can be launched using scripts in the `run` fold
 
 ---
 Exact algorithm for tree tree containment problem (BOTCH) is located in `TreeWidthTreeContainment` folder
+
+---
+Citation:
+```
+@article{
+dushatskiy2024solving,
+title={Solving the Tree Containment Problem Using Graph Neural Networks},
+author={Arkadiy Dushatskiy and Esther Julien and Leen Stougie and Leo van Iersel},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2024},
+url={https://openreview.net/forum?id=nK5MazeIpn},
+note={}
+}
+```
